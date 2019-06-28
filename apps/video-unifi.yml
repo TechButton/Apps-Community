@@ -77,8 +77,8 @@
         pg_env:
           PUID: 1000
           PGID: 1000
-		  TZ: America/Chicago
-		  DEBUG: 1
+          TZ: America/Chicago
+          DEBUG: 1
 
     # MAIN DEPLOYMENT #############################################################
 
@@ -89,21 +89,21 @@
         pull: yes
         published_ports:
           - '{{ports.stdout}}{{extport1}}:{{intport1}}'
-		  - '{{ports.stdout}}{{extport2}}:{{intport2}}'
-		  - '{{ports.stdout}}{{extport3}}:{{intport3}}'
-		  - '{{ports.stdout}}{{extport4}}:{{intport4}}'
-		  - '{{ports.stdout}}{{extport5}}:{{intport5}}'
-		  - '{{ports.stdout}}{{extport6}}:{{intport6}}'
-		  - '{{ports.stdout}}{{extport7}}:{{intport7}}'
-		  - '{{ports.stdout}}{{extport8}}:{{intport8}}'
-		  - '{{ports.stdout}}{{extport9}}:{{intport9}}'
-		  - '{{ports.stdout}}{{extport10}}:{{intport10}}'
+	  - '{{ports.stdout}}{{extport2}}:{{intport2}}'
+	  - '{{ports.stdout}}{{extport3}}:{{intport3}}'
+	  - '{{ports.stdout}}{{extport4}}:{{intport4}}'
+	  - '{{ports.stdout}}{{extport5}}:{{intport5}}'
+	  - '{{ports.stdout}}{{extport6}}:{{intport6}}'
+	  - '{{ports.stdout}}{{extport7}}:{{intport7}}'
+	  - '{{ports.stdout}}{{extport8}}:{{intport8}}'
+          - '{{ports.stdout}}{{extport9}}:{{intport9}}'
+	  - '{{ports.stdout}}{{extport10}}:{{intport10}}'
         volumes: '{{pg_volumes}}'
         env: '{{pg_env}}'
         restart_policy: unless-stopped
         networks:
           - name: plexguide
             aliases:
-              - '{{pgrole}}'
+             - '{{pgrole}}'
         state: started
         labels: '{{pg_labels}}'
