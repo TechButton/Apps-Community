@@ -105,6 +105,11 @@
           - name: plexguide
             aliases:
              - '{{pgrole}}'
+        security_opt:
+          - apparmor:unconfined
+        cap_add:
+          - SYS_ADMIN
+          - DAC_READ_SEARCH
         state: started
         labels: '{{pg_labels}}'
 
