@@ -25,7 +25,7 @@
         extport5: '8443'
         intport6: '8880/tcp'
         extport6: '8880'
-        image: 'goofball222/unifi-controller:testing'
+        image: 'goofball222/unifi:testing'
 
     # CORE (MANDATORY) ############################################################
     - name: 'Including cron job'
