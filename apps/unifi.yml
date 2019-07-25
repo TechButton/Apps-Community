@@ -23,10 +23,8 @@
         extport4: '8880'
         intport5: '8443/tcp'
         extport5: '8443'
-        intport6: '8880/tcp'
-        extport6: '8880'
-        intport7: '8843/tcp'
-        extport7: '8843'
+        intport6: '8843/tcp'
+        extport6: '8843'
         image: 'goofball222/unifi:testing'
 
     # CORE (MANDATORY) ############################################################
@@ -45,7 +43,7 @@
            traefik.admin.port: '{{intport5}}'
            traefik.admin.protocol: 'https'
            traefik.guest.frontend.rule: 'Host:{{pgrole}}-guest.{{domain.stdout}},{{tldset}}'
-           traefik.guest.port: '{{intport7}}'
+           traefik.guest.port: '{{intport6}}'
            traefik.guest.protocol: 'https'
            traefik.frontend.headers.SSLRedirect: 'true'
            traefik.frontend.headers.STSSeconds: '315360000'
@@ -61,6 +59,9 @@
       set_fact:
         pg_volumes:
           - '/opt/appdata/{{pgrole}}:/usr/lib/unifi'
+          - '/opt/appdata/{{pgrole}}/cert:/usr/lib/unifi/cert'
+          - '/opt/appdata/{{pgrole}}/data:/usr/lib/unifi/data'
+          - '/opt/appdata/{{pgrole}}/logs:/usr/lib/unifi/logs'
           - '/etc/localtime:/etc/localtime:ro'
 
     - name: 'Setting PG ENV'
@@ -84,7 +85,6 @@
           - '{{extport4}}:{{intport4}}'
           - '{{extport5}}:{{intport5}}'
           - '{{extport6}}:{{intport6}}'
-          - '{{extport7}}:{{intport7}}'
         volumes: '{{pg_volumes}}'
         env: '{{pg_env}}'
         restart_policy: always
