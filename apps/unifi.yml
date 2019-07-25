@@ -42,7 +42,7 @@
            traefik.frontend.passHostHeader: 'true'
            traefik.backend: '{{pgrole}}'
            traefik.admin.frontend.rule: 'Host:{{pgrole}}.{{domain.stdout}},{{tldset}}'
-           traefik.admin.port: '{{intport5}}','{{intport7}}','{{intport4}}'
+           traefik.admin.port: '{{intport5}}'
            traefik.admin.protocol: 'https'
            traefik.guest.frontend.rule: 'Host:{{pgrole}}-guest.{{domain.stdout}},{{tldset}}'
            traefik.guest.port: '{{intport7}}'
