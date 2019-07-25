@@ -58,7 +58,6 @@
     - name: 'Setting PG Volumes'
       set_fact:
         pg_volumes:
-          - '/opt/appdata/{{pgrole}}:/usr/lib/unifi'
           - '/opt/appdata/{{pgrole}}/cert:/usr/lib/unifi/cert'
           - '/opt/appdata/{{pgrole}}/data:/usr/lib/unifi/data'
           - '/opt/appdata/{{pgrole}}/logs:/usr/lib/unifi/logs'
