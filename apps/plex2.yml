@@ -22,7 +22,7 @@
         intport4: '32410/udp'
         extport4: '32420'
         intport5: '32412/udp'
-        extport5: '32423'
+        extport5: '32422'
         intport6: '32413/udp'
         extport6: '32423'
         intport7: '32414/udp'
