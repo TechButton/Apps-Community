@@ -43,6 +43,7 @@
       register: servertype
 
     - name: Register Claim Number
+      shell: 'touch /var/plexguide/plex2.claim'
       shell: 'cat /var/plexguide/plex2.claim'
       register: claim
       when: servertype.stdout == "remote"
